@@ -3,9 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const slide = document.querySelector('.product-slide');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentIndex = 0;
+        const totalItems = slide.children.length;
+        const itemsToShow = 5;
+        const itemsToScroll = 1;
+
+        function updateSlidePosition() {
+            const slideWidth = slide.clientWidth / itemsToShow;
+            slide.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }
+
+        prevButton.addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex -= itemsToScroll;
+                if (currentIndex < 0) currentIndex = 0;
+                updateSlidePosition();
+            }
+        });
+
+        nextButton.addEventListener('click', function() {
+            if (currentIndex < totalItems - itemsToShow) {
+                currentIndex += itemsToScroll;
+                if (currentIndex > totalItems - itemsToShow) currentIndex = totalItems - itemsToShow;
+                updateSlidePosition();
+            }
+        });
+
+        updateSlidePosition();
+    });
+    </script>
+    <title>Design Test</title>
+    
 </head>
 <body>
-    
+    <main>
+        <section class="home-section">
+            <div class="home-header">
+                <h1>EXPLORE OUR <span class="home-title-break">COLLECTIONS</span></h1>
+                <div class="scrollmenu">
+                    <nav class="navbar">
+                        <a href="#rattan" class="nav-link">RATTAN</a>
+                        <a href="#sosis" class="nav-link">SOSIS</a>
+                        <a href="#luminous" class="nav-link">LUMINOUS</a>
+                        <a href="#artisan" class="nav-link active">ARTISAN</a>
+                        <a href="#marble" class="nav-link">MARBLE</a>
+                        <a href="#amazon" class="nav-link">AMAZON</a>
+                        <a href="#ingesimonis" class="nav-link">INGESIMONIS</a>
+                    </nav>
+                </div>
+                <div class="content-container">
+                    <div class="gallery-wrapper">
+                        <div class="arrow-left">
+                            <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 26L1 14L13 2" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                                </svg>
+                        </div>
+                        <div class="gallery">
+                            <figure class="gallery-item-1">
+                                <img src="assets/405dd0544a41a3c09e18e9050a0441da.jpeg" class="gallery-image">
+                            </figure>
+                            <figure class="gallery-item-2">
+                                <img src="assets/fc6e0337d64e0850ed6ccfe8ac4c7688.jpeg" class="gallery-image">
+                            </figure>
+                            <figure class="gallery-item-3">
+                                <img src="assets/ed172dc8464c157d7fc94a6cf5b6dc9b.jpeg" class="gallery-image">
+                            </figure>
+                            <figure class="gallery-item-4">
+                                <img src="assets/45eefdaf51333b1ef1df16b166bc2bed.jpeg" class="gallery-image">
+                                <div class="gallery-item-info">
+                                    <div class="gallery-item-title">
+                                        <h2>ARTISAN</h2>
+                                        <p class="home-subtitle">CRAFTED FOR HOSPITALITY, RETAIL AND <span class ="subtitle-break">PROJECTS</span></p>
+                                    </div>
+                                    <div class="gallery-item-description">
+                                        <p class="description-text">At Versmissen, we specialize in designing and developing complete interior collections, catering to a global market. Our focus spans the hospitality, retail, and project sectors, with clients ranging from hotels and restaurants to interior shops, architects, and stylists.</p>
+                                        <a href="#" class="btn-read-more">READ MORE</a>
+                                    </div>
+                                </div>
+                            </figure>
+                        </div>
+                        <div class="arrow-right">
+                            <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 2L14 14L2 26" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                                </svg>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <hr class="full-width-hr">
+        <section class="register-container">
+            <div class="reg-title">
+                <h1 class="reg-main-title ">CREATE YOUR PROFESSIONAL ACCOUNT</h1>
+                <p class="reg-subtitile">UNLOK ACCESS TO LATEST <span class="text-subtitile-brake"> COLLECTIONS</span></p>
+                <p class="reg-subtitile-mobile">UNLOK ACCESS TO <span class="text-subtitile-brake">LATEST COLLECTIONS</span></p>
+                    <svg width="36" height="36" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.00087 7.06228C8.67492 7.06228 10.032 5.70519 10.032 4.03114C10.032 2.35709 8.67492 1 7.00087 1C5.32681 1 3.96973 2.35709 3.96973 4.03114C3.96973 5.70519 5.32681 7.06228 7.00087 7.06228Z" stroke="black" stroke-width="2" stroke-miterlimit="10"/>
+                    <path d="M1 19.6362V15.9199C1 12.6085 3.68858 9.91992 7 9.91992C10.3114 9.91992 13 12.6085 13 15.9199V19.6362" stroke="black" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                <p class="reg-description">Create an account to explore our comprehensive product catalog, complete with high-quality images, detailed specifications, and pricing information. Enjoy direct 
+                    access to our sales team for any questions or order inquiries—everything you need, right at your fingertips.
+                </p>
+            </div>
+            <div class="reg-button-group">
+                <a href="#" class="reg-btn-contact">PLEASE REGISTER</a>
+                <a href="#" class="reg-btn-contact">PLAN A CALL</a>
+            </div>
+        </section>
+        <hr class="full-width-hr">
+        <section class="product-highlight-container">
+            <div class="title-highlight-tablet">
+                <p class="highlight-text-subtitile">Browse through</p>
+                <h2 class="highlight-text-titel">CUSTOMERS FAVORITES</h2>
+                <p class="highlight-text-subtitile">and get inspired</p>
+            </div>
+            <div class="arrow-left" id="prev">
+                <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 26L1 14L13 2" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="product-slide-wrapper">
+                <div class="product-slide">
+                    <div class="product-card">
+                        <img src="assets/product-1.png">
+                        <div class="product-detail">
+                            <p class="product-title">Congo Dining Table Ø80h</p>
+                            <p class="product-subtitle">Product code: CONGODIN80-RC</p>
+                        </div>
+                    </div>
+                    <div class="title-highlight">
+                        <p class="highlight-text-subtitile">Browse through</p>
+                        <h2 class="highlight-text-titel">CUSTOMERS FAVORITES</h2>
+                        <p class="highlight-text-subtitile">and get inspired</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/product-2.png">
+                        <div class="product-detail">
+                            <p class="product-title">Sotho Dining Chair</p>
+                            <p class="product-subtitle">Product code: SOTHODC-RC</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/product-3.png">
+                        <div class="product-detail">
+                            <p class="product-title">Luggage Rack 1</p>
+                            <p class="product-subtitle">Product code: LUGGRACK1</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/product-4.png">
+                        <div class="product-detail">
+                            <p class="product-title">Astor Wall Lamp Ant. Black</p>
+                            <p class="product-subtitle">Product code: ASTORWLAB</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/product-2.png">
+                        <div class="product-detail">
+                            <p class="product-title">Product 5</p>
+                            <p class="product-subtitle">Product code: PROD5</p>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="assets/product-3.png">
+                        <div class="product-detail">
+                            <p class="product-title">Product 6</p>
+                            <p class="product-subtitle">Product code: PROD6</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="arrow-right" id="next">
+                <svg width="15" height="28" viewBox="0 0 15 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2L14 14L2 26" stroke="black" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/>
+                </svg>
+            </div>    
+        </section>
+    </main>
 </body>
 </html>
